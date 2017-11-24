@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <color name="colorPrimary">#F50057</color>
+    <color name="colorPrimaryDark">#f50057</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="viewBg">#f1f5f8</color>
+    <color name="album_title">#4c4c4c</color>
+    <color name="walmart_azul">#77b8f1</color>
+    <color name="extra_red">#f3ce1117</color>
+    <color name="lojas_americanas">#f39f11ce</color>
+    <color name="carrefour">#f3ce1117</color>
+    <color name="carrefour_navigationBarColor">#f3b77c06</color>
+    <color name="about_background">#f30d6c6c</color>
+    <color name="about_background_navigationBarColor">#f30d6c6c</color>
+
+
+
+
+
+</resources>

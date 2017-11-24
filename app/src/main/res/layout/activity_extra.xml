@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="25dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="384dp"
+        android:layout_height="161dp"
+        android:scaleType="matrix"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/extra"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="360dp"
+        android:textStyle="normal"
+        android:layout_height="306dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:text="É uma das bandeiras do Grupo Pão de Açúcar, lançada em 1989 na cidade de Campo Grande.Dados de 8 de novembro de 2006 mostram que a rede tem 80 lojas em 12 estados e no Distrito Federal, totalizando 576.197 m² de área de vendas, 3.555 check-outs e 24.048 funcionários.Em 2006, o Extra correspondeu por 50,3% das vendas líquidas da CBD. Em 2010, o Grupo Pão de Açúcar começou um plano estratégico que modificaria a forma de como a marca Extra é aplicada em suas lojas. Esse plano consiste em transformar os hipermercados em uma das bandeiras da marca; assim, passaram a se chamar Extra Hiper."
+        android:textAlignment="viewStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="361dp"
+        android:layout_height="23dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="15sp"
+        android:text="Extra"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+</android.support.constraint.ConstraintLayout>

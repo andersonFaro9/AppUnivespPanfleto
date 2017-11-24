@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteY="25dp">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="384dp"
+        android:layout_height="161dp"
+        android:scaleType="matrix"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/walmart"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="360dp"
+        android:textStyle="normal"
+        android:layout_height="306dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:text="Wal-Mart Stores, Inc., conhecida como Walmart desde 2008 e Wal-Mart antes disso, é uma multinacional estadunidense de lojas de departamento. A companhia foi eleita a maior multinacional de 2010.A companhia foi fundada por Sam Walton em 1962, incorporada em 31 de outubro de 1969 e feita capital aberto na New York Stock Exchange, em 1972. A sede da Wal-Mart fica em Bentonville, Arkansas.Walmart é a maior loja de varejo dos Estados unidos. Em 2009, a multinacional gerou 51% dos seus US$258 bilhões em vendas nos seus negócios de mercearia nos Estados Unidos.A Walmart também opera a Sam's Club na América do Norte. Walmart tem 11.000 lojas em 27 países diferentes, com 55 nomes diferentes. A companhia opera sob seu próprio nome nos Estados Unidos, incluindo seus 50 estados. Ela também opera sob seu próprio nome em Porto Rico e no Brasil. Opera no México como Walmex, e no Reino Unido como Asda."
+        android:textAlignment="viewStart"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="361dp"
+        android:layout_height="23dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:textSize="15sp"
+        android:text="Walmart"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+</android.support.constraint.ConstraintLayout>

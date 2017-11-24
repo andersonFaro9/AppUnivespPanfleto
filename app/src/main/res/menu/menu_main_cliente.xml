@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/about"
+        android:title="@string/titulo"
+        app:showAsAction="never" />
+
+
+    <item
+        android:id="@+id/cadeado"
+        android:icon="@drawable/ic_lock_black_24dp"
+        android:title="cadeado"
+        app:showAsAction="always" />
+
+
+</menu>

@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "318108624086",
+    "firebase_url": "https://appunivespcurso.firebaseio.com",
+    "project_id": "appunivespcurso",
+    "storage_bucket": "appunivespcurso.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:318108624086:android:d994de3b81ebaae6",
+        "android_client_info": {
+          "package_name": "br.com.appunivespcurso"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "318108624086-e6fm9cv9huqoqslaga9iikdkdolb7uai.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.appunivespcurso",
+            "certificate_hash": "264f50731edc4547aabe3b532a6324253ca2384a"
+          }
+        },
+        {
+          "client_id": "318108624086-r0ve44bcnqb0ag10d3hviicbmt9vtc1c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBevCqmVkLzW-gwZVpSwpe6eiqt3vEHbwY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "318108624086-r0ve44bcnqb0ag10d3hviicbmt9vtc1c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
