@@ -7,80 +7,38 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.ImageView
+import android.widget.TextView
+import android.widget.Toast
 import br.com.appunivespcurso.R
 import br.com.appunivespcurso.activitys.CarrefourActivity
 import br.com.appunivespcurso.activitys.ExtraActivity
 import br.com.appunivespcurso.activitys.LojasAmericanasActivity
 import br.com.appunivespcurso.activitys.WallMartActivity
 import br.com.appunivespcurso.model.ShopModel
-import java.util.*
 
 
 /**
  * Created by faro on 9/22/17.
  */
 
-
-class ShopAdapter(private var context: Context, private var list: List<ShopModel>, private var baseList: List<ShopModel>)
-    : RecyclerView.Adapter<ShopAdapter.ViewHolder>(), Filterable {
-
-
-    override fun getFilter(): Filter {
-        return object : Filter() {
-            var listShop = ArrayList<ShopModel>()
-
-            override fun performFiltering(charSequence: CharSequence?): FilterResults {
-                val results = Filter.FilterResults()
-
-                if (charSequence == null || charSequence.isEmpty()) {
-                    results.values = baseList
-                    results.count = baseList.size
-                } else {
-                    getBaseList().filterTo(listShop) { it.name.toLowerCase(Locale.getDefault()).contains(charSequence) }
-                    results.count = listShop.size
-                    results.values = listShop
-                }
-
-                return results
-            }
-
-            override fun publishResults(p0: CharSequence?, filterResults: FilterResults?) {
-                setList(filterResults?.values as List<ShopModel>)
-                notifyDataSetChanged()
-            }
-
-        }
-    }
-
-    fun getBaseList(): List<ShopModel> = baseList
-
-    fun setList(list: List<ShopModel>) {
-        this.list = list
-    }
-
+class ShopAdapter(private var context: Context, private var list: List<ShopModel>)
+    : RecyclerView.Adapter<ShopAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 
         var titleTextView: TextView? = null
-        var countTextView: TextView? = null
         var thumbImageView: ImageView? = null
         var subtitleTextView: TextView? = null
 
         init {
             titleTextView = itemView.findViewById<TextView>(R.id.title) as? TextView
-            //countTextView = itemView.findViewById<TextView>(R.id.count) as? TextView
             subtitleTextView = itemView.findViewById<TextView>(R.id.subtituloItem) as? TextView
             thumbImageView = itemView.findViewById<ImageView>(R.id.thumbnail) as? ImageView
-            //overflowImageView = itemView.findViewById<ImageView>(R.id.overflow) as? ImageView
-
-
         }
 
-
     }
-
 
     override fun onCreateViewHolder(parent: ViewGroup, type: Int): ViewHolder {
 
