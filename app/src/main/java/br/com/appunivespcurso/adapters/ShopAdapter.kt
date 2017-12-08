@@ -32,13 +32,17 @@ class ShopAdapter(private var context: Context, private var list: List<ShopModel
         var thumbImageView: ImageView? = null
         var subtitleTextView: TextView? = null
 
+
         init {
-            titleTextView = itemView.findViewById<TextView>(R.id.title) as? TextView
-            subtitleTextView = itemView.findViewById<TextView>(R.id.subtituloItem) as? TextView
-            thumbImageView = itemView.findViewById<ImageView>(R.id.thumbnail) as? ImageView
+
+            titleTextView = itemView.findViewById<TextView>(R.id.title)
+            subtitleTextView = itemView.findViewById<TextView>(R.id.subtituloItem)
+            thumbImageView = itemView.findViewById<ImageView>(R.id.thumbnail)
+
         }
 
     }
+
 
     override fun onCreateViewHolder(parent: ViewGroup, type: Int): ViewHolder {
 

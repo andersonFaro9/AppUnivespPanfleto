@@ -13,11 +13,10 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 
-class MainActivity : AppCompatActivity() {
+ open class MainActivity : AppCompatActivity() {
 
     var list = ArrayList<ShopModel>()
     var adapter = ShopAdapter(this, list)
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
 

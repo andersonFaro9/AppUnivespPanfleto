@@ -2,6 +2,7 @@ package br.com.appunivespcurso.activitys
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.text.TextUtils
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -9,6 +10,8 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import br.com.appunivespcurso.R
+import br.com.appunivespcurso.interfaces.ICleanListClientActivity
+import br.com.appunivespcurso.interfaces.ICrudListClientActivity
 import br.com.appunivespcurso.model.ClientModel
 import com.google.firebase.FirebaseApp
 import com.google.firebase.database.*
@@ -19,10 +22,7 @@ import java.util.*
  * Created by faro on 11/14/17.
  */
 
-
-//App adicionado ao googledrive
-
-class ListClientActivity : AppCompatActivity() {
+open class ListClientActivity : AppCompatActivity(), ICleanListClientActivity, ICrudListClientActivity {
 
     var firebaseDatabase: FirebaseDatabase? = null
     var databaseReference: DatabaseReference? = null
@@ -56,13 +56,13 @@ class ListClientActivity : AppCompatActivity() {
 
         initializeFireBase()
 
-        addListaDeDados()
+        adicionaNomeEemailNoBanco()
 
         addChilds()
 
     }
 
-    private fun addListaDeDados() {
+    private fun adicionaNomeEemailNoBanco() {
 
         listV_dados?.onItemClickListener = AdapterView.OnItemClickListener { parent, _, position, _ ->
 
@@ -70,12 +70,11 @@ class ListClientActivity : AppCompatActivity() {
             editTextName?.setText(clienteSelecionado.nome)
             editTextEmail?.setText(clienteSelecionado.email)
 
-
         }
     }
 
 
-    fun addChilds() = databaseReference?.child("Cliente")?.addValueEventListener(ClientesImplments())
+    private fun addChilds() = databaseReference?.child("Cliente")?.addValueEventListener(ClientesImplments())
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
 
@@ -84,11 +83,11 @@ class ListClientActivity : AppCompatActivity() {
         return true
     }
 
-    fun cleanList() {
+    override fun ListClientActivity.cleanList() {
+
         editTextEmail?.setText("")
         editTextName?.setText("")
     }
-
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
@@ -96,25 +95,22 @@ class ListClientActivity : AppCompatActivity() {
 
             R.id.add_cliente -> {
 
-                val crud = CrudClientesActivity()
-
-                crud.apply { addCliente() }
-
+               addCliente()
 
             }
 
             R.id.update_cliente -> {
 
-                val crud = CrudClientesActivity()
-                crud.apply { updateCliente() }
+
+                updateCliente()
+
 
             }
 
             R.id.delete_cliente -> {
 
 
-                val crud = CrudClientesActivity()
-                crud.apply { deleteCliente() }
+                deleteCliente()
 
             }
 
@@ -127,6 +123,93 @@ class ListClientActivity : AppCompatActivity() {
         return true
 
     }
+
+
+    override fun ListClientActivity.addCliente(): Boolean {
+
+        var check = true
+
+        val cliente = ClientModel()
+
+        cliente.uid = UUID.randomUUID().toString()
+
+        cliente.nome = editTextName?.text.toString()
+
+        cliente.email = editTextEmail?.text.toString()
+
+
+        if (TextUtils.isEmpty(cliente.nome) || TextUtils.isEmpty(cliente.email)) {
+
+            Toast.makeText(this, "Todos os campos devem ser preenchidos", Toast.LENGTH_SHORT).show()
+            check = false
+        }
+
+        else {
+
+            databaseReference?.child("Cliente")?.child(cliente.uid)?.setValue(cliente)
+        }
+
+        cleanList()
+
+        return check
+    }
+
+    override fun ListClientActivity.updateCliente() : Boolean {
+
+        var check = true
+
+        val cliente = ClientModel()
+
+        cliente.uid = clienteSelecionado.uid
+
+        cliente.nome = editTextName?.text.toString()
+
+        cliente.email = editTextEmail?.text.toString()
+
+
+        if (TextUtils.isEmpty(cliente.nome) || TextUtils.isEmpty(cliente.email)) {
+
+            Toast.makeText(this, "Campos devem está preenchidos", Toast.LENGTH_SHORT).show()
+            check = false
+        }
+
+        else {
+            databaseReference?.child("Cliente")?.child(cliente.uid)?.setValue(cliente)
+        }
+
+        return check
+    }
+
+    override fun ListClientActivity.deleteCliente() : Boolean {
+
+        var check = true
+        val cliente = ClientModel()
+        cliente.uid = clienteSelecionado.uid
+
+        cliente.nome = editTextName?.text.toString().trim()
+        cliente.email = editTextEmail?.text.toString()
+
+        if (TextUtils.isEmpty(cliente.nome) || TextUtils.isEmpty(cliente.email)) {
+
+            Toast.makeText(this, "Nada deletado", Toast.LENGTH_SHORT).show()
+            check = false
+        }
+
+        else {
+            databaseReference?.child("Cliente")?.child(cliente.uid)?.removeValue()
+        }
+
+        cleanList()
+
+        return check
+    }
+
+
+
+
+
+
+
 
 
     inner class ClientesImplments : ValueEventListener {

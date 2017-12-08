@@ -75,6 +75,16 @@
             android:parentActivityName=".activitys.AboutActivity"
             android:screenOrientation="portrait" />
         <activity android:name=".extensions.Extensions" />
+        <activity android:name=".adapters.X" />
+        <activity android:name=".activitys.CrudClientesActivity" />
+        <activity android:name=".interfaces.Ilogin" />
+        <activity android:name=".Utils.ValidaDados" />
+        <activity android:name=".interfaces.ImplIlogin" />
+        <activity android:name=".Utils.Crud" />
+        <activity android:name=".Utils.Campos" />
+        <activity android:name=".Utils.Validador" />
+        <activity android:name=".interfaces.Info" />
+        <activity android:name=".Utils.Info" />
 
     </application>
 
